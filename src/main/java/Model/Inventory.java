@@ -7,6 +7,9 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class Inventory {
+    private String Item;
+    private double Price;
+    private int Quantity;
 
     public Inventory(String x1, double x2, )
     Connection conn = ConnectionSingleton.getConnection();

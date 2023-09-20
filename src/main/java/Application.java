@@ -39,7 +39,7 @@ public class Application {
             }
 
         }
-
+// test
         PreparedStatement ps2 = conn.prepareStatement("select * from table1");
         ResultSet rs2 = ps2.executeQuery();
 

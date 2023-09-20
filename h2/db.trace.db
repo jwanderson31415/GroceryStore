@@ -4,3 +4,10 @@ org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "--h2 is 
 --first, drop your tables (to reset your database for testing)
 --then create your tables
 afdbfdb [42001-214]
+2023-09-20 14:34:24 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "\000acreate table table1( column1 varchar(255), column2 double, column3 int)[*])"; SQL statement:
+
+create table table1( column1 varchar(255), column2 double, column3 int)) [42000-214]
+2023-09-20 14:34:24 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "insert into table1 (column1, column2) values (2, 'test2')[*]')"; SQL statement:
+insert into table1 (column1, column2) values (2, 'test2')') [42000-214]

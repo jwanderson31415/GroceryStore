@@ -1,11 +1,14 @@
 import Controller.Controller;
+import DAO.InventoryServiceDAO;
 import Model.Inventory;
+import Service.InventoryService;
 import Util.ConnectionSingleton;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.Scanner;
 
 public class Application {
@@ -18,11 +21,14 @@ public class Application {
         //controller.getAPI().start();
 
         Connection conn = ConnectionSingleton.getConnection();
+        InventoryServiceDAO inventoryDAO = new InventoryServiceDAO(conn);
         Scanner scan = new Scanner(System.in);
         boolean exit = false;
 
+        InventoryService inventoryService = new InventoryService(inventoryDAO);
+
         while(!exit){
-            System.out.println("Would you like to to inventory 1)Add, 2)Edit, 3)Remove");
+            System.out.println("Would you like to to inventory 1)Insert, 2)Query, 3)Delete");
             int response = scan.nextInt();
             if(response==1){
                 System.out.println("Enter Item name to be added: ");
@@ -32,10 +38,12 @@ public class Application {
                 System.out.println("Enter Quantity: ");
                 int quantity = scan.nextInt();
                 Inventory inventory = new Inventory(item, price, quantity);
-                inventory.Add(item, price, quantity);
-
-
-
+            }
+            else if(response == 2){
+                System.out.println("Enter name of item:");
+                String item = scan.next();
+                List<Inventory> inventoryList = inventoryService.getItem();
+                System.out.println(inventoryList);
             }
 
         }

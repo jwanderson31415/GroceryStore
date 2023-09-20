@@ -11,3 +11,37 @@ create table table1( column1 varchar(255), column2 double, column3 int)) [42000-
 2023-09-20 14:34:24 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "insert into table1 (column1, column2) values (2, 'test2')[*]')"; SQL statement:
 insert into table1 (column1, column2) values (2, 'test2')') [42000-214]
+2023-09-20 14:35:51 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "\000acreate table table1( column1 varchar(255), column2 double, column3 int)[*])"; SQL statement:
+
+create table table1( column1 varchar(255), column2 double, column3 int)) [42000-214]
+2023-09-20 14:35:52 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "insert into table1 (column1, column2) values (2, 'test2')[*]')"; SQL statement:
+insert into table1 (column1, column2) values (2, 'test2')') [42000-214]
+2023-09-20 14:39:26 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "\000acreate table table1( Item varchar(255), Price double, Quantity int)[*])"; SQL statement:
+
+create table table1( Item varchar(255), Price double, Quantity int)) [42000-214]
+2023-09-20 14:39:26 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "TABLE1" not found (this database is empty); SQL statement:
+insert into table1 (Item, Price, Quantity) values ('Banana', 0.99, 5) [42104-214]
+2023-09-20 14:40:19 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "TABLE1" not found; SQL statement:
+drop table table1 [42102-214]
+2023-09-20 14:40:19 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "TABLE1" not found (this database is empty); SQL statement:
+insert into table1 (Item, Price, Quantity) values ('Banana', 0.99, 5) [42104-214]
+2023-09-20 14:41:11 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "\000acreate table table1( Item varchar(255), Price double, Quantity int)[*])"; SQL statement:
+
+create table table1( Item varchar(255), Price double, Quantity int)) [42000-214]
+2023-09-20 14:41:11 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "TABLE1" not found (this database is empty); SQL statement:
+insert into table1 (Item, Price, Quantity) values ('Banana', 0.99, 5) [42104-214]
+2023-09-20 14:44:35 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "\000acreate table table1( Item varchar(255), Price double, Quantity int)[*])"; SQL statement:
+
+create table table1( Item varchar(255), Price double, Quantity int)) [42000-214]
+2023-09-20 14:44:35 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "TABLE1" not found (this database is empty); SQL statement:
+insert into table1 (Item, Price, Quantity) values ('Banana', 0.99, 5) [42104-214]

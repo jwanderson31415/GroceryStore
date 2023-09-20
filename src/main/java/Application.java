@@ -19,14 +19,14 @@ public class Application {
 
         Connection conn = ConnectionSingleton.getConnection();
         Scanner scan = new Scanner(System.in);
-        boolean exit = true;
+        boolean exit = false;
 
         while(!exit){
             System.out.println("Would you like to to inventory 1)Add, 2)Edit, 3)Remove");
             int response = scan.nextInt();
             if(response==1){
                 System.out.println("Enter Item name to be added: ");
-                String item = scan.nextLine();
+                String item = scan.next();
                 System.out.println("Enter Price: ");
                 double price = scan.nextDouble();
                 System.out.println("Enter Quantity: ");

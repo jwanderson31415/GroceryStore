@@ -14,6 +14,10 @@ public class Inventory {
     private String item;
     private double price;
     private int quantity;
+
+    public Inventory(){
+
+    }
     public Inventory(String item, double price, int quantity){
         this.item = item;
         this.price= price;
@@ -57,17 +61,12 @@ public class Inventory {
         this.quantity = quantity;
     }
 
-    public void setConn(Connection conn) {
-        this.conn = conn;
-    }
-
     @Override
     public String toString() {
         return "Inventory{" +
                 "item='" + item + '\'' +
                 ", price=" + price +
                 ", quantity=" + quantity +
-                ", conn=" + conn +
                 '}';
     }
 }

@@ -1,53 +1,42 @@
 package Service;
 
-import DAO.InventoryServiceDAO;
+import DAO.InventoryDAO;
+import DAO.InventoryDAO;
 import Model.Inventory;
 
 import java.util.List;
 
 public class InventoryService {
+    private InventoryDAO inventoryDAO;
 
     private String item;
-
     private double price;
-
     private int quantity;
-    private InventoryServiceDAO inventoryDAO;
 
-    public InventoryService(InventoryServiceDAO inventoryDAO) {
+
+    public InventoryService(InventoryDAO inventoryDAO) {
         this.inventoryDAO = inventoryDAO;
     }
 
-    public List<Inventory> getInventory(InventoryServiceDAO){
-        List<Inventory> inventoryList = inventoryDAO.query(author);
-        return inventoryList;
-    }
+//    public List<Inventory> getInventory(InventoryDAO){
+//        List<Inventory> inventoryList = inventoryDAO.query(author);
+//        return inventoryList;
+//    }
 
 
-    public void Delete(String name){
-        //delete item
-    }
-    public String getItem() {
-        return item;
+    public void addItem(Inventory item) {
     }
 
-    public double getPrice() {
-        return price;
+    public List<Inventory> getItemByName(String item) {
+        return null;
     }
 
-    public int getQuantity() {
-        return quantity;
+    public void deleteItem(String item) {
+
     }
 
-    public void setItem(String item) {
-        this.item = item;
+    public void updateItem(Inventory item){
+
     }
 
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
 }

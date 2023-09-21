@@ -1,13 +1,10 @@
 import Controller.Controller;
-import DAO.InventoryServiceDAO;
+import DAO.InventoryDAO;
 import Model.Inventory;
 import Service.InventoryService;
 import Util.ConnectionSingleton;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.List;
 import java.util.Scanner;
 
@@ -21,42 +18,67 @@ public class Application {
         //controller.getAPI().start();
 
         Connection conn = ConnectionSingleton.getConnection();
-        InventoryServiceDAO inventoryDAO = new InventoryServiceDAO(conn);
-        Scanner scan = new Scanner(System.in);
-        boolean exit = false;
-
+        InventoryDAO inventoryDAO = new InventoryDAO(conn);
         InventoryService inventoryService = new InventoryService(inventoryDAO);
 
+        Scanner scan = new Scanner(System.in);
+        boolean exit = false;
         while(!exit){
-            System.out.println("Would you like to to inventory 1)Insert, 2)Query, 3)Delete");
+            System.out.println("Would you like to inventory: (1)Insert (2)Query (3)Delete (4)Update");
+
             int response = scan.nextInt();
+
             if(response==1){
-                System.out.println("Enter Item name to be added: ");
+                // add item to service class
+                System.out.println("(1) ADD: Enter item: ");
                 String item = scan.next();
-                System.out.println("Enter Price: ");
+                System.out.println("(1) ADD: Enter price: ");
                 double price = scan.nextDouble();
-                System.out.println("Enter Quantity: ");
+                System.out.println("(1) ADD: Enter quantity: ");
                 int quantity = scan.nextInt();
                 Inventory inventory = new Inventory(item, price, quantity);
+                inventoryService.addItem(inventory);
             }
             else if(response == 2){
-                System.out.println("Enter name of item:");
+                // query item from service class
+                System.out.println("(2) QUERY: Enter name of item:");
                 String item = scan.next();
-                List<Inventory> inventoryList = inventoryService.getItem();
+                List<Inventory> inventoryList = inventoryService.getItemByName(item);
                 System.out.println(inventoryList);
+            }
+            else if(response == 3){
+                // delete item using service class
+                System.out.println("(3) DELETE: Enter item: ");
+                String item = scan.next();
+
+            }
+            else if(response == 4){
+                // update item using service class
+                System.out.println("(4) UPDATE: Enter item: ");
+                String item = scan.next();
+                System.out.println("(4) UPDATE: Enter price: ");
+                double price = scan.nextDouble();
+                System.out.println("(4) UPDATE: Enter quantity: ");
+                int quantity = scan.nextInt();
+                Inventory inventory = new Inventory(item, price, quantity);
+
+            }
+            else{
+                // invalid choice
+                System.out.println("Invalid choice: '" + response + "'");
             }
 
         }
-// test
-        PreparedStatement ps2 = conn.prepareStatement("select * from table1");
-        ResultSet rs2 = ps2.executeQuery();
 
-        while(rs2.next()){
-            System.out.println(rs2.getString("Item"));
-            System.out.println(rs2.getDouble("Price"));
-            System.out.println(rs2.getInt("Quantity"));
-
-        }
+//        PreparedStatement ps2 = conn.prepareStatement("select * from table1");
+//        ResultSet rs2 = ps2.executeQuery();
+//
+//        while(rs2.next()){
+//            System.out.println(rs2.getString("Item"));
+//            System.out.println(rs2.getDouble("Price"));
+//            System.out.println(rs2.getInt("Quantity"));
+//
+//        }
 
 
     }

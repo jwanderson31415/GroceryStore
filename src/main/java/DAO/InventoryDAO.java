@@ -73,10 +73,17 @@ public class InventoryDAO {
 
 
     public void deleteItem(String item) {
-
+        try{
+            PreparedStatement ps = conn.prepareStatement("delete grocery_store where Item = ?");
+            ps.setString(1, item);
+            ps.executeUpdate();
+        }catch(SQLException e){
+         e.printStackTrace();
+        }
     }
 
     public void updateItem(Inventory item){
+
 
     }
 

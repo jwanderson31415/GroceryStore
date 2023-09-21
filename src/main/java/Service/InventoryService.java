@@ -48,6 +48,8 @@ public class InventoryService {
     }
 
     public void deleteItem(String item) {
+        inventoryDAO.deleteItem(item);
+
 
     }
 

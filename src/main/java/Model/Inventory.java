@@ -23,6 +23,10 @@ public class Inventory {
         this.price= price;
         this.quantity = quantity;
     }
+    public Inventory(String item, int quantity){
+        this.item = item;
+        this.quantity = quantity;
+    }
    // public Inventory(String x1, double x2, )
     Connection conn = ConnectionSingleton.getConnection();
 //    public void Add(String item, double price, int quantity) throws SQLException {

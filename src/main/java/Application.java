@@ -57,11 +57,11 @@ public class Application {
                 // update item using service class
                 System.out.println("(4) UPDATE: Enter item: ");
                 String item = scan.next();
-                System.out.println("(4) UPDATE: Enter price: ");
-                double price = scan.nextDouble();
+//                System.out.println("(4) UPDATE: Enter price: ");
+//                double price = scan.nextDouble();
                 System.out.println("(4) UPDATE: Enter quantity: ");
                 int quantity = scan.nextInt();
-                Inventory inventory = new Inventory(item, price, quantity);
+                Inventory inventory = new Inventory(item , quantity);
                 inventoryService.updateItem(inventory);
 
             }

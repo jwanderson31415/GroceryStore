@@ -19,11 +19,8 @@ public class InventoryDAO {
 
 
     public void addItem(Inventory inventory) {
-        PreparedStatement ps = null;
         try {
-            ps = conn.prepareStatement("insert into grocery_store (Item, Price, Quantity) values (?, ?, ?)");
-
-
+        PreparedStatement ps = conn.prepareStatement("insert into grocery_store (Item, Price, Quantity) values (?, ?, ?)");
         ps.setString(1, inventory.getItem());
         ps.setDouble(2, inventory.getPrice());
         ps.setInt(3, inventory.getQuantity());
@@ -36,7 +33,7 @@ public class InventoryDAO {
     public List<Inventory> getItemByName(String item) {
         List<Inventory> inventoryList = new ArrayList<>();
         try{
-            PreparedStatement ps = conn.prepareStatement("select item from grocery_store");
+            PreparedStatement ps = conn.prepareStatement("select * from grocery_store where item = ?");
             ps.setString(1, item);
 
             ResultSet rs = ps.executeQuery();

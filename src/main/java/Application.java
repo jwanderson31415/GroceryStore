@@ -50,6 +50,7 @@ public class Application {
                 // delete item using service class
                 System.out.println("(3) DELETE: Enter item: ");
                 String item = scan.next();
+                inventoryService.deleteItem(item);
 
             }
             else if(response == 4){
@@ -61,6 +62,7 @@ public class Application {
                 System.out.println("(4) UPDATE: Enter quantity: ");
                 int quantity = scan.nextInt();
                 Inventory inventory = new Inventory(item, price, quantity);
+                inventoryService.updateItem(inventory);
 
             }
             else{

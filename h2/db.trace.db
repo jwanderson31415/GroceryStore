@@ -148,3 +148,47 @@ insert into table1 (Item, Price, Quantity) values (milk, 3.0, 1) [42122-214]
 2023-09-20 15:42:09 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "ALTER TABLE table1 [*]ADDmilkvarchar(255)"; expected "., ADD, SET, RENAME, DROP, ALTER"; SQL statement:
 ALTER TABLE table1 ADDmilkvarchar(255) [42001-214]
+2023-09-21 14:21:04 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Invalid value "1" for parameter "parameterIndex" [90008-214]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:646)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.getInvalidValueException(DbException.java:298)
+	at org.h2.jdbc.JdbcPreparedStatement.setParameter(JdbcPreparedStatement.java:1395)
+	at org.h2.jdbc.JdbcPreparedStatement.setString(JdbcPreparedStatement.java:378)
+	at DAO.InventoryDAO.getItemByName(InventoryDAO.java:40)
+	at Service.InventoryService.getItemByName(InventoryService.java:46)
+	at Application.main(Application.java:46)
+2023-09-21 14:22:59 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Invalid value "1" for parameter "parameterIndex" [90008-214]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:646)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.getInvalidValueException(DbException.java:298)
+	at org.h2.jdbc.JdbcPreparedStatement.setParameter(JdbcPreparedStatement.java:1395)
+	at org.h2.jdbc.JdbcPreparedStatement.setString(JdbcPreparedStatement.java:378)
+	at DAO.InventoryDAO.getItemByName(InventoryDAO.java:40)
+	at Service.InventoryService.getItemByName(InventoryService.java:46)
+	at Application.main(Application.java:46)
+2023-09-21 14:27:19 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Invalid value "1" for parameter "parameterIndex" [90008-214]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:646)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.getInvalidValueException(DbException.java:298)
+	at org.h2.jdbc.JdbcPreparedStatement.setParameter(JdbcPreparedStatement.java:1395)
+	at org.h2.jdbc.JdbcPreparedStatement.setString(JdbcPreparedStatement.java:378)
+	at DAO.InventoryDAO.getItemByName(InventoryDAO.java:40)
+	at Service.InventoryService.getItemByName(InventoryService.java:46)
+	at Application.main(Application.java:46)
+2023-09-21 14:28:20 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Invalid value "1" for parameter "parameterIndex" [90008-214]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:646)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.getInvalidValueException(DbException.java:298)
+	at org.h2.jdbc.JdbcPreparedStatement.setParameter(JdbcPreparedStatement.java:1395)
+	at org.h2.jdbc.JdbcPreparedStatement.setString(JdbcPreparedStatement.java:378)
+	at DAO.InventoryDAO.getItemByName(InventoryDAO.java:40)
+	at Service.InventoryService.getItemByName(InventoryService.java:46)
+	at Application.main(Application.java:46)

@@ -13,7 +13,7 @@ public class InventoryServiceDAO {
 
     private Connection conn;
 
-    public InventoryServiceDAO(Connection conn){
+    public InventoryDAO(Connection conn){
         this.conn = conn;
     }
 

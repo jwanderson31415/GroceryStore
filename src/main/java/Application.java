@@ -83,13 +83,3 @@ public class Application {
         }
     }
 }
-
-
-/**
- * sql vs no sql
- * sql has the ability to strictly define tables and relate tables to each ohter
- * (referential integrity, eg a 'teachers' table may be related logically to a 'classrooms' table)
- *
- * noSQL is more scalable and more easily converted into a distributed system than sql
- * however
- */

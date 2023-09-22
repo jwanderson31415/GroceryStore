@@ -8,12 +8,10 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class Inventory {
-//    private String Item;
-//    private double Price;
-//    private int Quantity;
     private String item;
     private double price;
     private int quantity;
+    Connection conn = ConnectionSingleton.getConnection();
 
     public Inventory(){
 
@@ -27,16 +25,6 @@ public class Inventory {
         this.item = item;
         this.quantity = quantity;
     }
-   // public Inventory(String x1, double x2, )
-    Connection conn = ConnectionSingleton.getConnection();
-//    public void Add(String item, double price, int quantity) throws SQLException {
-//        PreparedStatement ps1 = conn.prepareStatement("insert into grocery_store (Item, Price, Quantity) values ("?, ?, ?");
-//
-//        ps1.executeUpdate();
-//    }
-
-
-
     public String getItem() {
         return item;
     }

@@ -1,7 +1,6 @@
 package Service;
 
 import DAO.InventoryDAO;
-import DAO.InventoryDAO;
 import Model.Inventory;
 
 import java.util.List;
@@ -17,12 +16,6 @@ public class InventoryService {
     public InventoryService(InventoryDAO inventoryDAO) {
         this.inventoryDAO = inventoryDAO;
     }
-
-//    public List<Inventory> getInventory(InventoryDAO){
-//        List<Inventory> inventoryList = inventoryDAO.query(author);
-//        return inventoryList;
-//    }
-
 
     public void addItem(Inventory inventory) {
         inventoryDAO.addItem(inventory);
@@ -47,15 +40,13 @@ public class InventoryService {
         return inventory;
     }
 
-    public void deleteItem(String item) {
-        inventoryDAO.deleteItem(item);
+    public void deleteItem(String item) { inventoryDAO.deleteItem(item); }
 
+    public void updateItem(Inventory inventory){ inventoryDAO.updateItem(inventory); }
 
-    }
-
-    public void updateItem(Inventory inventory){
-        inventoryDAO.updateItem(inventory);
-
+    public List<Inventory> getAllItems() {
+        List<Inventory> allItems = inventoryDAO.getAllItems();
+        return allItems;
     }
 
 }

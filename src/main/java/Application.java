@@ -27,7 +27,7 @@ public class Application {
         Scanner scan = new Scanner(System.in);
         boolean exit = false;
         while(!exit){
-            System.out.println("Would you like to inventory: (1)Insert (2)Query (3)Delete (4)Update");
+            System.out.println("Would you like to inventory: (1)Insert (2)Query (3)Delete (4)Update (5)View Inventory");
 
             int response = scan.nextInt();
 
@@ -68,24 +68,19 @@ public class Application {
                 inventoryService.updateItem(inventory);
 
             }
+            else if(response == 5){
+                // query all items from service class
+                System.out.println("(5) QUERY: All items:");
+                inventoryService.getAllItems();
+                List<Inventory> inventoryList = inventoryService.getAllItems();
+                System.out.println(inventoryList);
+            }
             else{
                 // invalid choice
                 System.out.println("Invalid choice: '" + response + "'");
             }
 
         }
-
-//        PreparedStatement ps2 = conn.prepareStatement("select * from table1");
-//        ResultSet rs2 = ps2.executeQuery();
-//
-//        while(rs2.next()){
-//            System.out.println(rs2.getString("Item"));
-//            System.out.println(rs2.getDouble("Price"));
-//            System.out.println(rs2.getInt("Quantity"));
-//
-//        }
-
-
     }
 }
 

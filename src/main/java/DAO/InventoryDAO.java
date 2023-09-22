@@ -94,6 +94,34 @@ public class InventoryDAO {
 
 
     }
+    public List<Inventory> getAllItems() {
+        List<Inventory> inventoryList = new ArrayList<>();
+        try{
+            PreparedStatement ps = conn.prepareStatement("select * from grocery_store");
+//            ps.setString(1, item);
+
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                String dbItem = rs.getString("item");
+                double dbPrice = rs.getDouble("price");
+                int dbQuantity = rs.getInt("quantity");
+                Inventory dbInventory = new Inventory(dbItem, dbPrice, dbQuantity);
+                inventoryList.add(dbInventory);
+            }
+//            if(rs.next()){
+//                String dbItem = rs.getString("item");
+//                double dbPrice = rs.getDouble("price");
+//                int dbQuantity = rs.getInt("quantity");
+//                Inventory dbInventory = new Inventory(dbItem, dbPrice, dbQuantity);
+//                inventoryList.add(dbInventory);
+//
+//            }
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+        return inventoryList;
+    }
+
 
 
 }

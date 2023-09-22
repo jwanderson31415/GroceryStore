@@ -1,10 +1,15 @@
 package Controller;
 
+import Service.InventoryService;
 import io.javalin.Javalin;
 import io.javalin.http.Context;
 
 
 public class Controller {
+    InventoryService inventoryService;
+    public Controller(InventoryService inventoryService) {
+        this.inventoryService = inventoryService;
+    }
 
     public Javalin getAPI() {
         Javalin app = Javalin.create();

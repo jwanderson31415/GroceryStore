@@ -82,7 +82,15 @@ public class InventoryDAO {
         }
     }
 
-    public void updateItem(Inventory item){
+    public void updateItem(Inventory inventory){
+        try{
+            PreparedStatement ps = conn.prepareStatement("UPDATE grocery_store set quantity=? where Item = ?");
+            ps.setInt(1, inventory.getQuantity());
+            ps.setString(2, inventory.getItem());
+            ps.executeUpdate();
+        }catch(SQLException e)
+        {e.printStackTrace();
+        }
 
 
     }

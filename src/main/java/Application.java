@@ -20,6 +20,9 @@ public class Application {
         Connection conn = ConnectionSingleton.getConnection();
         InventoryDAO inventoryDAO = new InventoryDAO(conn);
         InventoryService inventoryService = new InventoryService(inventoryDAO);
+        Controller controller = new Controller(inventoryService);
+        controller.getAPI().start();
+
 
         Scanner scan = new Scanner(System.in);
         boolean exit = false;
@@ -57,11 +60,11 @@ public class Application {
                 // update item using service class
                 System.out.println("(4) UPDATE: Enter item: ");
                 String item = scan.next();
-                System.out.println("(4) UPDATE: Enter price: ");
-                double price = scan.nextDouble();
+//                System.out.println("(4) UPDATE: Enter price: ");
+//                double price = scan.nextDouble();
                 System.out.println("(4) UPDATE: Enter quantity: ");
                 int quantity = scan.nextInt();
-                Inventory inventory = new Inventory(item, price, quantity);
+                Inventory inventory = new Inventory(item , quantity);
                 inventoryService.updateItem(inventory);
 
             }

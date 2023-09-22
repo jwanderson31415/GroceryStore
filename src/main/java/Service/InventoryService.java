@@ -53,7 +53,8 @@ public class InventoryService {
 
     }
 
-    public void updateItem(Inventory item){
+    public void updateItem(Inventory inventory){
+        inventoryDAO.updateItem(inventory);
 
     }
 

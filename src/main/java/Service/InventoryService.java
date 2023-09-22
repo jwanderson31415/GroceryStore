@@ -70,8 +70,8 @@ public class InventoryService {
 //        LogUtil.log.info("Setting up inventory service");
 //    }
 //    public boolean doesItemExist(String testItem) {
-//        LogUtil.log.info("Searching if item exists : "+ testItem);
-//        if(findItem(testItem)==null){
+//        LogUtil.log.info("Search if item exists : "+ testItem);
+//        if(getItemByName(testItem)==null){
 //            return false;
 //        }else{
 //            return true;

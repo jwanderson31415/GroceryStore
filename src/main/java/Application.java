@@ -23,11 +23,10 @@ public class Application {
         Controller controller = new Controller(inventoryService);
         controller.getAPI().start();
 
-
         Scanner scan = new Scanner(System.in);
         boolean exit = false;
         while(!exit){
-            System.out.println("Would you like to inventory: (1)Insert (2)Query (3)Delete (4)Update (5)View Inventory");
+            System.out.println("Would you like to inventory: \n(1) Add new item \n(2) Query item \n(3) Delete item \n(4) Update quantity of item \n(5) View Inventory\n");
 
             int response = scan.nextInt();
 
@@ -40,6 +39,8 @@ public class Application {
                 System.out.println("(1) ADD: Enter quantity: ");
                 int quantity = scan.nextInt();
                 Inventory inventory = new Inventory(item, price, quantity);
+
+                System.out.println("\n");
                 inventoryService.addItem(inventory);
             }
             else if(response == 2){
@@ -47,14 +48,17 @@ public class Application {
                 System.out.println("(2) QUERY: Enter name of item:");
                 String item = scan.next();
                 List<Inventory> inventoryList = inventoryService.getItemByName(item);
+
+                System.out.println("\n");
                 System.out.println(inventoryList);
             }
             else if(response == 3){
                 // delete item using service class
                 System.out.println("(3) DELETE: Enter item: ");
                 String item = scan.next();
-                inventoryService.deleteItem(item);
 
+                System.out.println("\n");
+                inventoryService.deleteItem(item);
             }
             else if(response == 4){
                 // update item using service class
@@ -65,19 +69,23 @@ public class Application {
                 System.out.println("(4) UPDATE: Enter quantity: ");
                 int quantity = scan.nextInt();
                 Inventory inventory = new Inventory(item , quantity);
-                inventoryService.updateItem(inventory);
 
+                System.out.println("\n");
+                inventoryService.updateItem(inventory);
             }
             else if(response == 5){
                 // query all items from service class
-                System.out.println("(5) QUERY: All items:");
+                System.out.println("(5) QUERY: All items:\n");
                 inventoryService.getAllItems();
                 List<Inventory> inventoryList = inventoryService.getAllItems();
+
+                System.out.println("\n");
                 System.out.println(inventoryList);
             }
             else{
                 // invalid choice
-                System.out.println("Invalid choice: '" + response + "'");
+                System.out.println("\n");
+                System.out.println("Invalid choice: '" + response + "'\n");
             }
 
         }

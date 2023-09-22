@@ -1,8 +1,11 @@
 package Service;
 
 import DAO.InventoryDAO;
+import Exceptions.NoProductFoundException;
 import Model.Inventory;
+import Util.LogUtil;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class InventoryService {
@@ -48,5 +51,36 @@ public class InventoryService {
         List<Inventory> allItems = inventoryDAO.getAllItems();
         return allItems;
     }
+
+    /**
+     * return true if item exists in items, false otherwise
+     * @param name
+     * @return
+     */
+
+    List<Inventory> items;
+    public InventoryService(){
+        items = new ArrayList<>();
+        LogUtil.log.info("Setting up inventory service");
+    }
+    public boolean doesItemExist(String testItem) {
+        LogUtil.log.info("Searching if item exists : "+ testItem);
+        if(findItem(testItem)==null){
+            return false;
+        }else{
+            return true;
+        }
+
+    }
+
+    public Inventory findItem(String findItem){
+        for(Inventory itemExistence : items){
+            if(itemExistence.getItem().equals(findItem)){
+                return itemExistence;
+            }
+        }
+        return null;
+    }
+
 
 }

@@ -22,24 +22,10 @@ public class InventoryService {
 
     public void addItem(Inventory inventory) {
         inventoryDAO.addItem(inventory);
-        //Inventory dbInventory = inventory;
-
-        //inventoryDAO.addItem(inventory);
-
-//        if it's null, i assume it doesn't exist, and i proceed with the insert.
-//        if (dbInventory == null) {
-////            set the fkey that we just found by name for inserting the painting
-//            //inventory.setAuthorFkey(authorId);
-//            inventoryDAO.addItem(inventory);
-//        }else{
-////            if it does exist, throw an exception to the user input layer so it may inform the user.
-//           // throw new PaintingAlreadyExistsException();
-//        }
-
     }
 
-    public List<Inventory> getItemByName(String item) {
-        List<Inventory> inventory = inventoryDAO.getItemByName(item);
+    public Inventory getItemByName(String item) {
+        Inventory inventory = inventoryDAO.getItemByName(item);
         return inventory;
     }
 
@@ -51,43 +37,5 @@ public class InventoryService {
         List<Inventory> allItems = inventoryDAO.getAllItems();
         return allItems;
     }
-
-/**
- *  Testing
- */
-
-
-//
-//    /**
-//     * return true if item exists in items, false otherwise
-//     * @param name
-//     * @return
-//     */
-//
-//    List<Inventory> items;
-//    public InventoryService(){
-//        items = new ArrayList<>();
-//        LogUtil.log.info("Setting up inventory service");
-//    }
-//    public boolean doesItemExist(String testItem) {
-//        LogUtil.log.info("Search if item exists : "+ testItem);
-//        if(getItemByName(testItem)==null){
-//            return false;
-//        }else{
-//            return true;
-//        }
-//
-//    }
-//
-//    public Inventory findItem(String findItem){
-//        for(Inventory itemExistence : items){
-//            if(itemExistence.getItem().equals(findItem)){
-//                return itemExistence;
-//            }
-//        }
-//        return null;
-//    }
-
-
 
 }

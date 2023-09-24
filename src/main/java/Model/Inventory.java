@@ -38,10 +38,6 @@ public class Inventory {
         return quantity;
     }
 
-//    public Connection getConn() {
-//        return conn;
-//    }
-
     public void setItem(String item) {
         this.item = item;
     }

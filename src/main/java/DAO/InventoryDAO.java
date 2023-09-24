@@ -30,8 +30,7 @@ public class InventoryDAO {
         }
     }
 
-    public List<Inventory> getItemByName(String item) {
-        List<Inventory> inventoryList = new ArrayList<>();
+    public Inventory getItemByName(String item) {
         try{
             PreparedStatement ps = conn.prepareStatement("select * from grocery_store where item = ?");
             ps.setString(1, item);
@@ -42,35 +41,13 @@ public class InventoryDAO {
                 double dbPrice = rs.getDouble("price");
                 int dbQuantity = rs.getInt("quantity");
                 Inventory dbInventory = new Inventory(dbItem, dbPrice, dbQuantity);
-                inventoryList.add(dbInventory);
-
+                return dbInventory;
             }
         }catch(SQLException e){
             e.printStackTrace();
         }
-        return inventoryList;
-    }
-
-
-    public Inventory queryItem(String item){
-//        try{
-//            PreparedStatement ps = conn.prepareStatement("select * from grocery_store");
-//            ps.setString(1, item);
-//
-//            ResultSet rs = ps.executeQuery();
-//            if(rs.next()){
-//                String dbItem = rs.getString("Item");
-//                double dbPrice = rs.getDouble("Price");
-//                int dbQuantity = rs.getInt("Quantity");
-//                Inventory dbInventory = new Inventory();
-//                return dbInventory;
-//            }
-//        }catch(SQLException e){
-//            e.printStackTrace();
-//        }
         return null;
     }
-
 
     public void deleteItem(String item) {
         try{
@@ -98,7 +75,6 @@ public class InventoryDAO {
         List<Inventory> inventoryList = new ArrayList<>();
         try{
             PreparedStatement ps = conn.prepareStatement("select * from grocery_store");
-//            ps.setString(1, item);
 
             ResultSet rs = ps.executeQuery();
             while(rs.next()){
@@ -108,20 +84,9 @@ public class InventoryDAO {
                 Inventory dbInventory = new Inventory(dbItem, dbPrice, dbQuantity);
                 inventoryList.add(dbInventory);
             }
-//            if(rs.next()){
-//                String dbItem = rs.getString("item");
-//                double dbPrice = rs.getDouble("price");
-//                int dbQuantity = rs.getInt("quantity");
-//                Inventory dbInventory = new Inventory(dbItem, dbPrice, dbQuantity);
-//                inventoryList.add(dbInventory);
-//
-//            }
         }catch(SQLException e){
             e.printStackTrace();
         }
         return inventoryList;
     }
-
-
-
 }

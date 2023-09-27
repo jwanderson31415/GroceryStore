@@ -1,5 +1,4 @@
-package DAO;
-
+import DAO.InventoryDAO;
 import Model.Inventory;
 import Util.ConnectionSingleton;
 import junit.framework.Assert;

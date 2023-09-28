@@ -1,20 +1,20 @@
 package Model;
 
 public class Brand extends Inventory {
-    private int brandItemId;
+    private int brandId;
     private String brandName;
 
     public Brand (int brandItemId, String brandName) {
-        this.brandItemId = brandItemId;
+        this.brandId = brandItemId;
         this.brandName = brandName;
     }
 
     public int getBrandItemId() {
-        return brandItemId;
+        return brandId;
     }
 
     public void setBrandItemId(int brandItemId) {
-        this.brandItemId = brandItemId;
+        this.brandId = brandItemId;
     }
 
     public String getBrandName() {
@@ -28,7 +28,7 @@ public class Brand extends Inventory {
     @Override
     public String toString() {
         return "Brand{" +
-                "brandItemId=" + brandItemId +
+                "brandItemId=" + brandId +
                 ", brandName='" + brandName + '\'' +
                 '}';
     }
